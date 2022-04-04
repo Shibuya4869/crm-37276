@@ -1,24 +1,116 @@
-# README
+# テーブル設計
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## users テーブル
 
-Things you may want to cover:
+| Column             | Type   | Options                  |
+| ------------------ | ------ | ------------------------ |
+| nickname           | string | null:false               |
+| email              | string | null:false, unique: true |
+| encrypted_password | string | null:false               |
 
-* Ruby version
+### Association
 
-* System dependencies
+- has_many :order
+- has_many :prospect
+- has_many :client
 
-* Configuration
+## Services テーブル
 
-* Database creation
+| Column | Type    | Options    |
+| ------ | ------- | ---------- |
+| name   | string  | null:false |
+| price  | integer | null:false |
 
-* Database initialization
+### Association
 
-* How to run the test suite
+- has_many :client_service
+- has_many :service_prospect
+- has_many :service_order
 
-* Services (job queues, cache servers, search engines, etc.)
+## clients テーブル
 
-* Deployment instructions
+| Column  | Type   | Options    |
+| ------- | ------ | ---------- |
+| name    | string | null:false |
+| phone   | string |            |
+| address | string |            |
 
-* ...
+### Association
+
+- has_many :client_service
+- has_many :order
+- has_many :prospect
+- belongs_to :user
+
+## prospects テーブル
+
+| Column               | Type       | Options                       |
+| -------------------- | ---------- | ----------------------------- |
+| service_id           | references | null:false, foreign_key: true |
+| client_id            | references | null:false, foreign_key: true |
+| user_id              | references | null:false, foreign_key: true |
+| scheduled_order_date | date       |                               |
+| license              | integer    | null:false                    |
+| note                 | text       | null:false                    |
+
+### Association
+
+- has_many :service_prospect
+- belongs_to :user
+- belongs_to :order
+- belongs_to :client
+
+## Orders テーブル
+
+| Column     | Type       | Options                       |
+| ---------- | ---------- | ----------------------------- |
+| service_id | references | null:false, foreign_key: true |
+| client_id  | references | null:false, foreign_key: true |
+| user_id    | references | null:false, foreign_key: true |
+| order_date | date       | null:false                    |
+| expiry     | date       | null:false                    |
+| license    | integer    | null:false                    |
+| note       | text       | null:false                    |
+
+### Association
+
+- has_many :service_order
+- has_one :prospect
+- belongs_to :user
+- belongs_to :client
+
+## client_service テーブル
+
+| Column     | Type       | Options                       |
+| ---------- | ---------- | ----------------------------- |
+| client_id  | references | null:false, foreign_key: true |
+| service_id | references | null:false, foreign_key: true |
+
+### Association
+
+- belongs_to :client
+- belongs_to :service
+
+## service_prospect テーブル
+
+| Column      | Type       | Options                       |
+| ----------- | ---------- | ----------------------------- |
+| service_id  | references | null:false, foreign_key: true |
+| prospect_id | references | null:false, foreign_key: true |
+
+### Association
+
+- belongs_to :service
+- belongs_to :prospect
+
+## service_order テーブル
+
+| Column     | Type       | Options                       |
+| ---------- | ---------- | ----------------------------- |
+| service_id | references | null:false, foreign_key: true |
+| order_id   | references | null:false, foreign_key: true |
+
+### Association
+
+- belongs_to :service
+- belongs_to :order
