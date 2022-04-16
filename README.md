@@ -49,9 +49,9 @@
 | service_id           | references | null:false, foreign_key: true |
 | client_id            | references | null:false, foreign_key: true |
 | user_id              | references | null:false, foreign_key: true |
-| scheduled_order_date | date       |                               |
+| scheduled_order_date | date       | null:false                    |
 | license              | integer    | null:false                    |
-| note                 | text       | null:false                    |
+| note                 | text       |                               |
 
 ### Association
 
@@ -70,7 +70,7 @@
 | order_date | date       | null:false                    |
 | expiry     | date       | null:false                    |
 | license    | integer    | null:false                    |
-| note       | text       | null:false                    |
+| note       | text       |                               |
 
 ### Association
 
