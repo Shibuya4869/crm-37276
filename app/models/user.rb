@@ -5,6 +5,6 @@ class User < ApplicationRecord
   validates :nickname, presence: true
 
   has_many :orders
-  has_many :prospect
-  has_many :client
+  has_many :prospects
+  has_many :clients
 end
