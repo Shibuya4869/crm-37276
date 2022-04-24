@@ -8,6 +8,7 @@
   <p>契約情報が登録されていません</p>
 <% else %>
   <% @orders.each do |order| %>
+    <%= link_to "編集", edit_order_path(order.id) %>
     <%= order.client_id %>
     <%= order.service_id %>
     <%= order.user_id %>

@@ -1,0 +1,28 @@
+<%= render "shared/header" %>
+
+<h1>orders/edit</h1>
+
+<%= form_with model: @order, local: true do |f| %>
+  <%= f.label :service_id, "サービス名" %>
+  <%= f.text_field :service_id, placeholder:"ドロップダウンで選択式にする" %>
+  <br>
+  <%= f.label :client_id, "顧客名" %>
+  <%= f.text_field :client_id, placeholder:"ドロップダウンで選択式にする" %>
+  <br>
+  <%= f.label :user_id, "担当営業" %>
+  <%= f.text_field :user_id, placeholder:"ドロップダウンで選択式にする" %>
+  <br>
+  <%= f.label :order_date, "契約日" %>
+  <%= f.date_field :order_date %>
+  <br>
+  <%= f.label :expiry, "契約満了日" %>
+  <%= f.date_field :expiry %>
+  <br>
+  <%= f.label :license, "ライセンス数" %>
+  <%= f.number_field :license %>
+  <br>
+  <%= f.label :note, "備考" %>
+  <%= f.text_area :note %>
+  <br>
+  <%= f.submit %>
+<% end %>

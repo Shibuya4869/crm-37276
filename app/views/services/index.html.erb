@@ -8,6 +8,7 @@
   <p>サービス（商品）が登録されていません</p>
 <% else %>
   <% @services.each do |service| %>
+    <%= link_to "編集", edit_service_path(service.id) %>
     <%= service.name %>
     <%= service.price %>
     <br>

@@ -1,0 +1,13 @@
+<%= render "shared/header" %>
+
+<h1>services/edit</h1>
+
+<%= form_with model: @service, local: true do |f| %>
+  <%= f.label :name, "サービス（商品）名" %>
+  <%= f.text_field :name, placeholder:"サービス名を入力" %>
+  <br>
+  <%= f.label :price, "サービス単価" %>
+  <%= f.text_field :price, placeholder:"価格を入力" %>
+  <br>
+  <%= f.submit %>
+<% end %>

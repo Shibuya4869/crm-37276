@@ -1,4 +1,6 @@
 class ClientsController < ApplicationController
+  before_action :find_params, only: [:edit, :update]
+
   def index
     @clients = Client.all
   end
@@ -16,6 +18,17 @@ class ClientsController < ApplicationController
     end
   end
 
+  def edit
+  end
+
+  def update
+    if @client.update(client_params)
+      redirect_to action: :index
+    else
+      render :edit
+    end
+  end
+
   private
 
   def client_params
@@ -24,4 +37,8 @@ class ClientsController < ApplicationController
     )
   end
   
+  def find_params
+    @client = Client.find(params[:id])
+  end
+
 end

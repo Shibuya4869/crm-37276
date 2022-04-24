@@ -8,6 +8,7 @@
   <p>受注予定が登録されていません</p>
 <% else %>
   <% @prospects.each do |prospect| %>
+    <%= link_to "編集", edit_prospect_path(prospect.id) %>
     <%= prospect.client_id %>
     <%= prospect.service_id %>
     <%= prospect.user_id %>

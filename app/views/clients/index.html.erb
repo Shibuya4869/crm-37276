@@ -8,6 +8,7 @@
   <p>顧客が登録されていません</p>
 <% else %>
   <% @clients.each do |client| %>
+    <%= link_to "編集", edit_client_path(client.id) %>
     <%= client.name %>
     <%= client.phone %>
     <%= client.address %>
