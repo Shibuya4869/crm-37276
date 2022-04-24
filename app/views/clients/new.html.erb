@@ -1,0 +1,16 @@
+<%= render "shared/header" %>
+
+<h1>clients/new</h1>
+
+<%= form_with model: @client, local: true do |f| %>
+  <%= f.label :name, "顧客名" %>
+  <%= f.text_field :name, placeholder:"顧客名を入力" %>
+  <br>
+  <%= f.label :phone, "電話番号" %>
+  <%= f.text_field :phone, placeholder:"電話番号を入力" %>
+  <br>
+  <%= f.label :address, "メールアドレス" %>
+  <%= f.text_field :address, placeholder:"メールアドレスを入力" %>
+  <br>
+  <%= f.submit %>
+<% end %>
