@@ -3,13 +3,14 @@
 <h1>client/index</h1>
 <%= link_to "顧客登録", new_client_path %>
 
-<br>
-<% if @clients != nil %>
+<br><br>
+<% if @clients == [] %>
   <p>顧客が登録されていません</p>
 <% else %>
   <% @clients.each do |client| %>
     <%= client.name %>
     <%= client.phone %>
     <%= client.address %>
+    <br>
   <% end %>
 <% end %>
