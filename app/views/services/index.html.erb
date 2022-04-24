@@ -1,0 +1,14 @@
+<%= render "shared/header" %>
+
+<h1>client/index</h1>
+<%= link_to "サービス（商品）登録", new_service_path %>
+
+<br>
+<% if @services != nil %>
+  <p>サービス（商品）が登録されていません</p>
+<% else %>
+  <% @services.each do |service| %>
+    <%= service.name %>
+    <%= service.price %>
+  <% end %>
+<% end %>

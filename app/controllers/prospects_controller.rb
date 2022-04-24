@@ -1,6 +1,6 @@
 class ProspectsController < ApplicationController
   def index
-    @prospects = Prospect.all#.order('created_at ASC')
+    @prospects = Prospect.all.order('created_at ASC')
     # binding.pry
   end
   

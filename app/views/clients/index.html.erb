@@ -4,9 +4,12 @@
 <%= link_to "顧客登録", new_client_path %>
 
 <br>
-<%= @clients %>
-<% @clients.each do |client| %>
-  <%= client.name %>
-  <%= client.phone %>
-  <%= client.address %>
+<% if @clients != nil %>
+  <p>顧客が登録されていません</p>
+<% else %>
+  <% @clients.each do |client| %>
+    <%= client.name %>
+    <%= client.phone %>
+    <%= client.address %>
+  <% end %>
 <% end %>

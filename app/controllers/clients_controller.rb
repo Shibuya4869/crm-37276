@@ -8,7 +8,7 @@ class ClientsController < ApplicationController
   end
 
   def create
-    @client = Prospect.new(client_params)
+    @client = Client.new(client_params)
     if @client.save
       redirect_to root_path
     else
@@ -23,4 +23,5 @@ class ClientsController < ApplicationController
       :name, :phone, :address
     )
   end
+  
 end

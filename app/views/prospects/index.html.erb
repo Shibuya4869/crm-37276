@@ -2,15 +2,21 @@
 
 <h1>prospects/index</h1>
 <%= link_to "顧客一覧", clients_path %>
+|
+<%= link_to "サービス（商品）一覧", services_path %>
+|
 <%= link_to "受注予定登録", new_prospect_path %>
 
-<br>
-<%= @prospects %>
-<% @prospects.each do |prospect| %>
-  <%= prospect.client_id %>
-  <%= prospect.service_id %>
-  <%= prospect.user_id %>
-  <%= prospect.scheduled_order_date %>
-  <%= prospect.license %>
-  <%= prospect.note %>
+<br><br>
+<% if @prospects != nil %>
+  <p>受注予定が登録されていません</p>
+<% else %>
+  <% @prospects.each do |prospect| %>
+    <%= prospect.client_id %>
+    <%= prospect.service_id %>
+    <%= prospect.user_id %>
+    <%= prospect.scheduled_order_date %>
+    <%= prospect.license %>
+    <%= prospect.note %>
+  <% end %>
 <% end %>
