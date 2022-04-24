@@ -44,14 +44,14 @@
 
 ## prospects テーブル
 
-| Column               | Type       | Options                       |
-| -------------------- | ---------- | ----------------------------- |
-| service_id           | references | null:false, foreign_key: true |
-| client_id            | references | null:false, foreign_key: true |
-| user_id              | references | null:false, foreign_key: true |
-| scheduled_order_date | date       | null:false                    |
-| license              | integer    | null:false                    |
-| note                 | text       |                               |
+| Column               | Type    | Options    |
+| -------------------- | ------- | ---------- |
+| service_id           | integer | null:false |
+| client_id            | integer | null:false |
+| user_id              | integer | null:false |
+| scheduled_order_date | date    | null:false |
+| license              | integer | null:false |
+| note                 | text    |            |
 
 ### Association
 
@@ -62,15 +62,15 @@
 
 ## Orders テーブル
 
-| Column     | Type       | Options                       |
-| ---------- | ---------- | ----------------------------- |
-| service_id | references | null:false, foreign_key: true |
-| client_id  | references | null:false, foreign_key: true |
-| user_id    | references | null:false, foreign_key: true |
-| order_date | date       | null:false                    |
-| expiry     | date       | null:false                    |
-| license    | integer    | null:false                    |
-| note       | text       |                               |
+| Column     | Type    | Options    |
+| ---------- | ------- | ---------- |
+| service_id | integer | null:false |
+| client_id  | integer | null:false |
+| user_id    | integer | null:false |
+| order_date | date    | null:false |
+| expiry     | date    | null:false |
+| license    | integer | null:false |
+| note       | text    |            |
 
 ### Association
 

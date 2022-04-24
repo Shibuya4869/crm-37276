@@ -1,0 +1,19 @@
+<%= render "shared/header" %>
+
+<h1>prospects/new</h1>
+
+<%= form_with model: @prospects, local: true do |f| %>
+  <%= f.label :service_id, "サービス名" %>
+  <%= f.text_field :service_id, placeholder:"ドロップダウンで選択式にする" %>
+  <%= f.label :client_id, "顧客名" %>
+  <%= f.text_field :client_id, placeholder:"ドロップダウンで選択式にする" %>
+  <%= f.label :user_id, "担当営業" %>
+  <%= f.text_field :user_id, placeholder:"ドロップダウンで選択式にする" %>
+  <%= f.label :scheduled_order_date, "契約予定日" %>
+  <%= f.date_field :scheduled_order_date %>
+  <%= f.label :license, "ライセンス数" %>
+  <%= f.number_field :license %>
+  <%= f.label :note, "備考" %>
+  <%= f.text_area :note %>
+  <%= f.submit %>
+<% end %>

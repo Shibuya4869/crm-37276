@@ -1,6 +1,15 @@
 <%= render "shared/header" %>
 
 <h1>prospects/index</h1>
-<%= link_to "新規登録", root_path %>
+<%= link_to "新規登録", new_prospect_path %>
 
+<br>
 <%= @prospects %>
+<%# @prospects.each do |prospect| %>
+  <%#= prospect.service_id %>
+  <%#= prospect.client_id %>
+  <%#= prospect.user_id %>
+  <%#= prospect.scheduled_order_date %>
+  <%#= prospect.license %>
+  <%#= prospect.note %>
+<%# end %>
