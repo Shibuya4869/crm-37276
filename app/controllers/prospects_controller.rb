@@ -3,6 +3,7 @@ class ProspectsController < ApplicationController
 
   def index
     @prospects = Prospect.all.order('created_at ASC')
+    
   end
   
   def new
