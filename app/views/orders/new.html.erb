@@ -4,13 +4,13 @@
 
 <%= form_with model: @order, local: true do |f| %>
   <%= f.label :service_id, "サービス名" %>
-  <%= f.text_field :service_id, placeholder:"ドロップダウンで選択式にする" %>
+  <%= f.collection_select(:service_id, Service.all, :id, :name, selected: 1) %>
   <br>
   <%= f.label :client_id, "顧客名" %>
-  <%= f.text_field :client_id, placeholder:"ドロップダウンで選択式にする" %>
+  <%= f.collection_select(:client_id, Client.all, :id, :name, prompt: "選択してください") %>
   <br>
   <%= f.label :user_id, "担当営業" %>
-  <%= f.text_field :user_id, placeholder:"ドロップダウンで選択式にする" %>
+  <%= f.collection_select(:user_id, User.all, :id, :nickname, prompt: "選択してください") %>
   <br>
   <%= f.label :order_date, "契約日" %>
   <%= f.date_field :order_date %>

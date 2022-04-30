@@ -3,8 +3,9 @@ class Prospect < ApplicationRecord
   validates :license,              presence: true
 
   # has_many :services, through: :service_prospect
-  has_many :service
+  belongs_to :service
   belongs_to :user
-  # belongs_to :order
   belongs_to :client
+  # belongs_to :order
+
 end

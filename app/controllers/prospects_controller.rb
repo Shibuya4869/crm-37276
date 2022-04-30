@@ -2,8 +2,7 @@ class ProspectsController < ApplicationController
   before_action :find_params, only: [:edit, :update]
 
   def index
-    @prospects = Prospect.all.order('created_at ASC')
-    
+    @prospects = Prospect.includes([:user, :client, :service]).order('created_at ASC')
   end
   
   def new
