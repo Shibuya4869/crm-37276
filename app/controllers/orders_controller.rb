@@ -6,11 +6,13 @@ class OrdersController < ApplicationController
   end
   
   def new
-    @order = Order.new
+    @prospect = Prospect.find(params[:prospect_id])
+    @orders = Order.new
   end
 
   def create
     @order = Order.new(order_params)
+    # binding.pry
     if @order.save
       redirect_to orders_path
     else
@@ -33,8 +35,8 @@ class OrdersController < ApplicationController
 
   def order_params
     params.require(:order).permit(
-      :service_id, :client_id, :user_id, :order_date, :expiry, :license, :note
-    )
+      :prospect_id, :service_id, :client_id, :user_id, :order_date, :expiry, :license, :note
+    ).merge(prospect_id: 1)#1固定にしているので要変更
   end
 
   def find_params

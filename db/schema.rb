@@ -30,6 +30,7 @@ ActiveRecord::Schema.define(version: 2022_04_06_105203) do
   end
 
   create_table "orders", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "prospect_id", null: false
     t.bigint "user_id", null: false
     t.bigint "service_id", null: false
     t.bigint "client_id", null: false
@@ -40,6 +41,7 @@ ActiveRecord::Schema.define(version: 2022_04_06_105203) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["client_id"], name: "index_orders_on_client_id"
+    t.index ["prospect_id"], name: "index_orders_on_prospect_id"
     t.index ["service_id"], name: "index_orders_on_service_id"
     t.index ["user_id"], name: "index_orders_on_user_id"
   end
@@ -99,6 +101,7 @@ ActiveRecord::Schema.define(version: 2022_04_06_105203) do
   add_foreign_key "client_services", "clients"
   add_foreign_key "client_services", "services"
   add_foreign_key "orders", "clients"
+  add_foreign_key "orders", "prospects"
   add_foreign_key "orders", "services"
   add_foreign_key "orders", "users"
   add_foreign_key "prospects", "clients"

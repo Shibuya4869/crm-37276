@@ -8,15 +8,23 @@
   <p>受注予定が登録されていません</p>
 <% else %>
   <% @prospects.each do |prospect| %>
-    <%= link_to "受注", new_order_path(prospect.id) %>
-    <%= link_to "編集", edit_prospect_path(prospect.id) %>
-    <%= prospect.client.name %>
-    <%= prospect.service.name %>
-    <%= prospect.user.nickname %>
-    <%= prospect.license %>
-    <%= prospect.service.price * prospect.license %>
-    <%= prospect.scheduled_order_date %>
-    <%= prospect.note %>
-    <br>
+    <% flag = 0 %>
+    <% @orders.each do |order| %>
+      <% if prospect.id == order.prospect_id %>
+        <% flag = 1 %>
+      <% end %>
+    <% end %>
+    <% if flag == 0 %>
+      <%= link_to "受注", new_prospect_order_path(prospect.id) %>
+      <%= link_to "編集", edit_prospect_path(prospect.id) %>
+      <%= prospect.client.name %>
+      <%= prospect.service.name %>
+      <%= prospect.user.nickname %>
+      <%= prospect.license %>
+      <%= prospect.service.price * prospect.license %>
+      <%= prospect.scheduled_order_date %>
+      <%= prospect.note %>
+      <br>
+    <% end %>
   <% end %>
 <% end %>

@@ -3,6 +3,7 @@ class ProspectsController < ApplicationController
 
   def index
     @prospects = Prospect.includes([:user, :client, :service]).order('created_at ASC')
+    @orders = Order.all
   end
   
   def new
