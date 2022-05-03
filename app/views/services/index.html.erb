@@ -9,6 +9,7 @@
 <% else %>
   <% @services.each do |service| %>
     <%= link_to "編集", edit_service_path(service.id) %>
+    <%= link_to "削除", service_path(service.id), method: :delete %>
     <%= service.name %>
     <%= service.price %>
     <br>

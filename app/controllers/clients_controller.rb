@@ -29,6 +29,11 @@ class ClientsController < ApplicationController
     end
   end
 
+  def destroy
+    @client.destroy
+    redirect_to action: :index
+  end
+
   private
 
   def client_params

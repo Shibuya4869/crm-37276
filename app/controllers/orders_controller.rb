@@ -1,5 +1,5 @@
 class OrdersController < ApplicationController
-  before_action :find_params, only: [:edit, :update]
+  before_action :find_params, only: [:edit, :update, :destroy]
 
   def index
     @orders = Order.all.order('created_at ASC')
@@ -12,7 +12,6 @@ class OrdersController < ApplicationController
 
   def create
     @order = Order.new(order_params)
-    # binding.pry
     if @order.save
       redirect_to orders_path
     else
@@ -29,6 +28,11 @@ class OrdersController < ApplicationController
     else
       render :edit
     end
+  end
+
+  def destroy
+    @order.destroy
+    redirect_to action: :index
   end
 
   private

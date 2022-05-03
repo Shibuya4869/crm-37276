@@ -9,6 +9,7 @@
 <% else %>
   <% @orders.each do |order| %>
     <%= link_to "編集", edit_order_path(order.id) %>
+    <%= link_to "削除", order_path(order.id), method: :delete %>
     <%= order.client.name %>
     <%= order.service.name %>
     <%= order.user.nickname %>

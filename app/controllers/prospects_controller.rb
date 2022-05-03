@@ -1,5 +1,5 @@
 class ProspectsController < ApplicationController
-  before_action :find_params, only: [:edit, :update]
+  before_action :find_params, only: [:edit, :update, :destroy]
 
   def index
     @prospects = Prospect.includes([:user, :client, :service]).order('created_at ASC')
@@ -28,6 +28,11 @@ class ProspectsController < ApplicationController
     else
       render :edit
     end
+  end
+
+  def destroy
+    @prospect.destroy
+    redirect_to root_path
   end
 
   private

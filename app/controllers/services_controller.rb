@@ -1,5 +1,5 @@
 class ServicesController < ApplicationController
-  before_action :find_params, only: [:edit, :update]
+  before_action :find_params, only: [:edit, :update, :destroy]
 
   def index
     @services = Service.all
@@ -27,6 +27,11 @@ class ServicesController < ApplicationController
     else
       render :edit
     end
+  end
+
+  def destroy
+    @service.destroy
+    redirect_to action: :index
   end
 
   private

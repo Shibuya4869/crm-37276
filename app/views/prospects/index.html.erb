@@ -17,6 +17,7 @@
     <% if flag == 0 %>
       <%= link_to "受注", new_prospect_order_path(prospect.id) %>
       <%= link_to "編集", edit_prospect_path(prospect.id) %>
+      <%= link_to "削除", prospect_path(prospect.id), method: :delete %>
       <%= prospect.client.name %>
       <%= prospect.service.name %>
       <%= prospect.user.nickname %>

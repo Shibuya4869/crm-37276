@@ -9,6 +9,7 @@
 <% else %>
   <% @clients.each do |client| %>
     <%= link_to "編集", edit_client_path(client.id) %>
+    <%= link_to "削除", client_path(client.id), method: :delete %>
     <%= client.name %>
     <%= client.phone %>
     <%= client.address %>
