@@ -7,7 +7,7 @@ class OrdersController < ApplicationController
   
   def new
     @prospect = Prospect.find(params[:prospect_id])
-    @orders = Order.new
+    @order = Order.new
   end
 
   def create

@@ -1,12 +1,22 @@
-<%= render "shared/header" %>
+<h1>受注予定一覧</h1>
+<%= link_to "受注予定登録", new_prospect_path, class:"new-data-btn" %>
 
-<h1>prospects/index</h1>
-<%= link_to "受注予定登録", new_prospect_path %>
-
-<br><br>
 <% if @prospects == [] %>
   <p>受注予定が登録されていません</p>
 <% else %>
+  <table>
+  <tr class="table-subject">
+  <th></th>
+  <th></th>
+  <th></th>
+  <th>顧客名</th>
+  <th>サービス名</th>
+  <th>担当営業</th>
+  <th>ライセンス数</th>
+  <th>受注予定金額</th>
+  <th>受注予定日</th>
+  <th>備考</th>
+  </tr>
   <% @prospects.each do |prospect| %>
     <% flag = 0 %>
     <% @orders.each do |order| %>
@@ -15,17 +25,19 @@
       <% end %>
     <% end %>
     <% if flag == 0 %>
-      <%= link_to "受注", new_prospect_order_path(prospect.id) %>
-      <%= link_to "編集", edit_prospect_path(prospect.id) %>
-      <%= link_to "削除", prospect_path(prospect.id), method: :delete %>
-      <%= prospect.client.name %>
-      <%= prospect.service.name %>
-      <%= prospect.user.nickname %>
-      <%= prospect.license %>
-      <%= prospect.service.price * prospect.license %>
-      <%= prospect.scheduled_order_date %>
-      <%= prospect.note %>
-      <br>
+      <tr>
+      <td><%= link_to "受注", new_prospect_order_path(prospect.id) %></td>
+      <td><%= link_to "編集", edit_prospect_path(prospect.id) %></td>
+      <td><%= link_to "削除", prospect_path(prospect.id), method: :delete %></td>
+      <td class="td-client"><%= prospect.client.name %></td>
+      <td class="td-service"><%= prospect.service.name %></td>
+      <td class="td-user"><%= prospect.user.nickname %></td>
+      <td class="td-license"><%= prospect.license %></td>
+      <td class="td-price"><%= prospect.service.price * prospect.license %></td>
+      <td class="td-date"><%= prospect.scheduled_order_date %></td>
+      <td class="td-note"><%= prospect.note %></td>
+      </tr>
     <% end %>
   <% end %>
+  </table>
 <% end %>

@@ -1,18 +1,10 @@
-<% if user_signed_in? %>
-  <%= link_to "Topへ", root_path %>
-  |
-  <%= link_to current_user.nickname, "#" %>
-  |
-  <%= link_to 'ログアウト', destroy_user_session_path, method: :delete %>
-<% else %>
-  <li><%= link_to 'ログイン', new_user_session_path %></li>
-  <li><%= link_to '新規登録', new_user_registration_path %></li>
-<%end%>
-<br>
-<%= link_to "受注予定一覧", prospects_path %>
-|
-<%= link_to "契約情報一覧", orders_path %>
-|
-<%= link_to "顧客一覧", clients_path %>
-|
-<%= link_to "サービス（商品）一覧", services_path %>
+<div class="header">
+    <% if user_signed_in? %>
+      <%= link_to "Topへ", root_path, class:"header-top-link" %>
+      <%= link_to current_user.nickname, "#", class:"header-user" %>
+      <%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class:"header-user" %>
+    <% else %>
+      <%= link_to 'ログイン', new_user_session_path, class:"header-user" %>
+      <%= link_to '新規登録', new_user_registration_path, class:"header-user" %>
+    <% end %>
+</div>

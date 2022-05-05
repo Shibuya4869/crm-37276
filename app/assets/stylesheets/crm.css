@@ -1,0 +1,107 @@
+.wrapper {
+  display: flex;
+}
+
+.header {
+  display: flex;
+  height: 30px;
+  width: 100%;
+  padding: 5px;
+  align-items: center;
+  background-color: #ffeeff;
+}
+
+.header-top-link {
+  padding: 30px;
+  align-items: center;
+}
+
+.header-user {
+  /* 右寄せ表示したい */
+  display: flex;
+  align-items: flex-end;
+  list-style: none;
+}
+
+.side-bar {
+  height: calc(100vh - 30px);
+  width: 300px;
+  padding: 10px;
+  background-color: #ffffee;
+}
+
+.side-bar-li {
+  line-height: 50px;
+  padding-left: 20px;
+}
+
+.main {
+  width: calc(100vw - 300px);
+  padding: 10px;
+  background-color: #eeffff;
+}
+
+h1 {
+  font-size: 24px;
+  padding-bottom: 20px;
+}
+
+.new-data-btn {
+  display: block;
+  padding-bottom: 20px;
+}
+
+table {
+  border-collapse: collapse;
+}
+
+th {
+  padding: 3px;
+  border: solid 1px #999999;
+  text-align: center;
+}
+
+td {
+  padding: 3px;
+  border: solid 1px #999999;
+}
+
+.td-client {
+  min-width: 100px;
+}
+
+.td-service {
+  min-width: 100px;
+}
+
+.td-user {
+  min-width: 100px;
+}
+
+.td-license {
+  min-width: 100px;
+  text-align: right;
+}
+
+.td-price {
+  min-width: 100px;
+  text-align: right;
+}
+
+.td-date {
+  min-width: 100px;
+  text-align: center;
+}
+
+.td-phone {
+  min-width: 100px;
+  text-align: center;
+}
+
+.td-mail {
+  min-width: 100px;
+}
+
+.td-note {
+  min-width: 100px;
+}

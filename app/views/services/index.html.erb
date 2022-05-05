@@ -1,17 +1,24 @@
-<%= render "shared/header" %>
-
-<h1>services/index</h1>
+<h1>サービス一覧</h1>
 <%= link_to "サービス（商品）登録", new_service_path %>
 
 <br><br>
 <% if @services == [] %>
   <p>サービス（商品）が登録されていません</p>
 <% else %>
+<table>
+  <tr class="table-subject">
+  <th></th>
+  <th></th>
+  <th>サービス名</th>
+  <th>月額単価</th>
+  </tr>
   <% @services.each do |service| %>
-    <%= link_to "編集", edit_service_path(service.id) %>
-    <%= link_to "削除", service_path(service.id), method: :delete %>
-    <%= service.name %>
-    <%= service.price %>
-    <br>
+    <tr>
+    <td><%= link_to "編集", edit_service_path(service.id) %></td>
+    <td><%= link_to "削除", service_path(service.id), method: :delete %></td>
+    <td class="td-service"><%= service.name %></td>
+    <td class="td-price"><%= service.price %></td>
+    </tr>
   <% end %>
+  </table>
 <% end %>

@@ -1,23 +1,34 @@
-<%= render "shared/header" %>
+<h1>契約情報一覧</h1>
 
-<h1>orders/index</h1>
-<%#= link_to "契約情報登録", new_prospect_order_path %>
-
-<br>
 <% if @orders == [] %>
   <p>契約情報が登録されていません</p>
 <% else %>
+<table>
+  <tr class="table-subject">
+  <th></th>
+  <th></th>
+  <th>顧客名</th>
+  <th>サービス名</th>
+  <th>担当営業</th>
+  <th>ライセンス数</th>
+  <th>契約金額</th>
+  <th>契約日</th>
+  <th>契約満了日</th>
+  <th>備考</th>
+  </tr>
   <% @orders.each do |order| %>
-    <%= link_to "編集", edit_order_path(order.id) %>
-    <%= link_to "削除", order_path(order.id), method: :delete %>
-    <%= order.client.name %>
-    <%= order.service.name %>
-    <%= order.user.nickname %>
-    <%= order.service.price * order.license %>
-    <%= order.order_date %>
-    <%= order.expiry %>
-    <%= order.license %>
-    <%= order.note %>
-    <br>
+    <tr>
+    <td><%= link_to "編集", edit_order_path(order.id) %></td>
+    <td><%= link_to "削除", order_path(order.id), method: :delete %></td>
+    <td class="td-client"><%= order.client.name %></td>
+    <td class="td-service"><%= order.service.name %></td>
+    <td class="td-user"><%= order.user.nickname %></td>
+    <td class="td-license"><%= order.license %></td>
+    <td class="td-price"><%= order.service.price * order.license %></td>
+    <td class="td-date"><%= order.order_date %></td>
+    <td class="td-date"><%= order.expiry %></td>
+    <td class="td-note"><%= order.note %></td>
+    </tr>
   <% end %>
+  </table>
 <% end %>
