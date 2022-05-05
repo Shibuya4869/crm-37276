@@ -1,23 +1,17 @@
 <h1>受注予定編集</h1>
 
-<%= form_with model: @prospect, local: true do |f| %>
-  <%= f.label :service_id, "サービス名" %>
+<%= form_with model: @prospect, local: true, class:"form-edit" do |f| %>
+  <%= f.label :service_id, "サービス名", class:"form-label" %>
   <%= f.collection_select(:service_id, Service.all, :id, :name) %>
-  <br>
-  <%= f.label :client_id, "顧客名" %>
+  <%= f.label :client_id, "顧客名", class:"form-label" %>
   <%= f.collection_select(:client_id, Client.all, :id, :name) %>
-  <br>
-  <%= f.label :user_id, "担当営業" %>
+  <%= f.label :user_id, "担当営業", class:"form-label" %>
   <%= f.collection_select(:user_id, User.all, :id, :nickname) %>
-  <br>
-  <%= f.label :scheduled_order_date, "契約予定日" %>
+  <%= f.label :scheduled_order_date, "契約予定日", class:"form-label" %>
   <%= f.date_field :scheduled_order_date %>
-  <br>
-  <%= f.label :license, "ライセンス数" %>
+  <%= f.label :license, "ライセンス数", class:"form-label" %>
   <%= f.number_field :license %>
-  <br>
-  <%= f.label :note, "備考" %>
-  <%= f.text_area :note %>
-  <br>
-  <%= f.submit %>
+  <%= f.label :note, "備考", class:"form-label" %>
+  <%= f.text_area :note, class:"form-note" %>
+  <%= f.submit "更新", class:"form-btn" %>
 <% end %>

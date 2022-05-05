@@ -1,3 +1,4 @@
+/* 共通部分 */
 .wrapper {
   display: flex;
 }
@@ -8,7 +9,7 @@
   width: 100%;
   padding: 5px;
   align-items: center;
-  background-color: #ffeeff;
+  background-color: #fff0ff;
 }
 
 .header-top-link {
@@ -27,7 +28,7 @@
   height: calc(100vh - 30px);
   width: 300px;
   padding: 10px;
-  background-color: #ffffee;
+  background-color: #fffff0;
 }
 
 .side-bar-li {
@@ -35,10 +36,11 @@
   padding-left: 20px;
 }
 
+/* メイン画面 */
 .main {
   width: calc(100vw - 300px);
   padding: 10px;
-  background-color: #eeffff;
+  background-color: #f0ffff;
 }
 
 h1 {
@@ -51,12 +53,13 @@ h1 {
   padding-bottom: 20px;
 }
 
+/* 一覧表示 */
 table {
   border-collapse: collapse;
 }
 
 th {
-  padding: 3px;
+  padding: 3px 5px;
   border: solid 1px #999999;
   text-align: center;
 }
@@ -68,40 +71,71 @@ td {
 
 .td-client {
   min-width: 100px;
+  padding: 0 10px;
 }
 
 .td-service {
   min-width: 100px;
+  padding: 0 10px;
 }
 
 .td-user {
   min-width: 100px;
+  padding: 0 10px;
 }
 
 .td-license {
   min-width: 100px;
   text-align: right;
+  padding: 0 10px;
 }
 
 .td-price {
   min-width: 100px;
   text-align: right;
+  padding: 0 10px;
 }
 
 .td-date {
   min-width: 100px;
   text-align: center;
+  padding: 0 10px;
 }
 
 .td-phone {
   min-width: 100px;
   text-align: center;
+  padding: 0 10px;
 }
 
 .td-mail {
   min-width: 100px;
+  padding: 0 10px;
 }
 
 .td-note {
   min-width: 100px;
+  padding: 0 5px;
+}
+
+/* 新規登録フォーム&編集フォーム */
+.form-new,
+.form-edit {
+  padding-left: 10px;
+}
+
+.form-label {
+  display: block;
+  padding-top: 10px;
+}
+
+.form-note {
+  height: 100px;
+  width: 300px;
+}
+
+.form-btn {
+  display: block;
+  margin-top: 15px;
+  padding: 2px 20px;
 }
