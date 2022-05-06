@@ -4,7 +4,7 @@
   </div>
   <div class="header-user">
     <% if user_signed_in? %>
-      <%= link_to current_user.nickname, edit_user_registration_path, class:"header-user-link" %>
+      <%= link_to current_user.nickname, edit_user_path(current_user), class:"header-user-link" %>
       <%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class:"header-user-link" %>
     <% else %>
       <%= link_to 'ログイン', new_user_session_path, class:"header-user-link" %>

@@ -4,7 +4,9 @@ Rails.application.routes.draw do
   resources :prospects, only: [:index, :new, :create, :edit, :update, :destroy] do
     resources :orders, only: [:new, :create]
   end
+  resources :users,    only: [:edit, :update]
   resources :orders,   only: [:index, :edit, :update, :destroy]
   resources :clients,  only: [:index, :new, :create, :edit, :update, :destroy]
   resources :services, only: [:index, :new, :create, :edit, :update, :destroy]
 end
+

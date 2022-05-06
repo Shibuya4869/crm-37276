@@ -3,6 +3,11 @@
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put, class:"form-edit" }) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
 
+<div class="field">
+    <%= f.label :nickname, "ユーザー名", class:"form-label" %>
+    <%= f.text_field :nickname %>
+  </div>
+
   <div class="field">
     <%= f.label :email, "メールアドレス", class:"form-label" %>
     <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
@@ -14,12 +19,12 @@
 
   <div class="field">
     <%= f.label :password, "新しいパスワード(#{@minimum_password_length}文字以上)", class:"form-label" %>
-    <%= f.password_field :password, autocomplete: "new-password" %>
+    <%= f.password_field :password, placeholder: "変更したい場合" %>
   </div>
 
   <div class="field">
     <%= f.label :password_confirmation, "新しいパスワード（再入力）", class:"form-label" %>
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+    <%= f.password_field :password_confirmation, placeholder: "変更したい場合" %>
   </div>
 
   <div class="field">

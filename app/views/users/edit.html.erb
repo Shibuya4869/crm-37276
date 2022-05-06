@@ -1,0 +1,9 @@
+<h2>ユーザー情報編集</h2>
+
+<%= form_with model: current_user, local: true, class:"form-edit" do |f| %>
+  <%= f.label :nickname, "ユーザー名", class:"form-label" %>
+  <%= f.text_field :nickname %>
+  <%= f.label :email, "メールアドレス", class:"form-label" %>
+  <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+  <%= f.submit "更新", class:"form-btn" %>
+<% end %>
