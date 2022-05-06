@@ -5,35 +5,46 @@
 
 .header {
   display: flex;
-  height: 30px;
+  height: 40px;
   width: 100%;
-  padding: 5px;
   align-items: center;
+  justify-content: space-between;
   background-color: #fff0ff;
 }
 
-.header-top-link {
-  padding: 30px;
-  align-items: center;
+.header-title {
+  height: 100%;
+  width: 300px;
+  display: flex;
+  padding-left: 20px;
 }
 
 .header-user {
-  /* 右寄せ表示したい */
   display: flex;
   align-items: flex-end;
   list-style: none;
+  padding-right: 10px;
+}
+
+.header-user-link {
+  padding: 0 10px;
 }
 
 .side-bar {
   height: calc(100vh - 30px);
   width: 300px;
-  padding: 10px;
+  padding: 10px 0 0 20px;
   background-color: #fffff0;
 }
 
 .side-bar-li {
   line-height: 50px;
-  padding-left: 20px;
+}
+
+h1 {
+  font-size: 24px;
+  padding-bottom: 20px;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 
 /* メイン画面 */
@@ -43,7 +54,7 @@
   background-color: #f0ffff;
 }
 
-h1 {
+h2 {
   font-size: 24px;
   padding-bottom: 20px;
 }
@@ -132,6 +143,7 @@ td {
 .form-note {
   height: 100px;
   width: 300px;
+  padding: 2px;
 }
 
 .form-btn {

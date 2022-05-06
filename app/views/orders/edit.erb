@@ -1,12 +1,12 @@
-<h1>契約情報編集</h1>
+<h2>契約情報編集</h2>
 
 <%= form_with model: @order, local: true, class:"form-edit" do |f| %>
   <%= f.label :service_id, "サービス名", class:"form-label" %>
-  <%= f.text_field :service_id, placeholder:"ドロップダウンで選択式にする" %>
+  <%= f.collection_select(:service_id, Service.all, :id, :name) %>
   <%= f.label :client_id, "顧客名", class:"form-label" %>
-  <%= f.text_field :client_id, placeholder:"ドロップダウンで選択式にする" %>
+  <%= f.collection_select(:client_id, Client.all, :id, :name) %>
   <%= f.label :user_id, "担当営業", class:"form-label" %>
-  <%= f.text_field :user_id, placeholder:"ドロップダウンで選択式にする" %>
+  <%= f.collection_select(:user_id, User.all, :id, :nickname, selected: @order.user.id) %>
   <%= f.label :order_date, "契約日", class:"form-label" %>
   <%= f.date_field :order_date %>
   <%= f.label :expiry, "契約満了日", class:"form-label" %>

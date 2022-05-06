@@ -1,10 +1,14 @@
 <div class="header">
+  <div class="header-title">
+    <h1>オリジナルアプリ</h1>
+  </div>
+  <div class="header-user">
     <% if user_signed_in? %>
-      <%= link_to "Topへ", root_path, class:"header-top-link" %>
-      <%= link_to current_user.nickname, "#", class:"header-user" %>
-      <%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class:"header-user" %>
+      <%= link_to current_user.nickname, edit_user_registration_path, class:"header-user-link" %>
+      <%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class:"header-user-link" %>
     <% else %>
-      <%= link_to 'ログイン', new_user_session_path, class:"header-user" %>
-      <%= link_to '新規登録', new_user_registration_path, class:"header-user" %>
+      <%= link_to 'ログイン', new_user_session_path, class:"header-user-link" %>
+      <%= link_to '新規登録', new_user_registration_path, class:"header-user-link" %>
     <% end %>
+  </div>
 </div>
