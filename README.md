@@ -23,9 +23,7 @@
 
 ### Association
 
-- has_many :client_service
-- has_many :service_prospect
-- has_many :service_order
+- has_many :prospect
 
 ## clients テーブル
 
@@ -37,10 +35,8 @@
 
 ### Association
 
-- has_many :client_service
 - has_many :order
 - has_many :prospect
-- belongs_to :user
 
 ## prospects テーブル
 
@@ -55,10 +51,10 @@
 
 ### Association
 
-- has_many :service_prospect
 - belongs_to :user
-- belongs_to :order
+- belongs_to :service
 - belongs_to :client
+- has_one :order
 
 ## Orders テーブル
 
@@ -74,43 +70,7 @@
 
 ### Association
 
-- has_many :service_order
-- has_one :prospect
 - belongs_to :user
 - belongs_to :client
-
-## client_service テーブル
-
-| Column     | Type       | Options                       |
-| ---------- | ---------- | ----------------------------- |
-| client_id  | references | null:false, foreign_key: true |
-| service_id | references | null:false, foreign_key: true |
-
-### Association
-
-- belongs_to :client
-- belongs_to :service
-
-## service_prospect テーブル
-
-| Column      | Type       | Options                       |
-| ----------- | ---------- | ----------------------------- |
-| service_id  | references | null:false, foreign_key: true |
-| prospect_id | references | null:false, foreign_key: true |
-
-### Association
-
-- belongs_to :service
 - belongs_to :prospect
-
-## service_order テーブル
-
-| Column     | Type       | Options                       |
-| ---------- | ---------- | ----------------------------- |
-| service_id | references | null:false, foreign_key: true |
-| order_id   | references | null:false, foreign_key: true |
-
-### Association
-
 - belongs_to :service
-- belongs_to :order

@@ -3,7 +3,6 @@ class Order < ApplicationRecord
   validates :expiry,     presence: true
   validates :license,    presence: true
 
-  # has_many :services, through: :service_order
   belongs_to :prospect
   belongs_to :service
   belongs_to :user
