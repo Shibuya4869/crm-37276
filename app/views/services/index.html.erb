@@ -15,7 +15,7 @@
   <% @services.each do |service| %>
     <tr>
     <td><%= link_to "編集", edit_service_path(service.id) %></td>
-    <td><%= link_to "削除", service_path(service.id), method: :delete %></td>
+    <td><%= link_to "削除", service_path(service.id), method: :delete, data: {confirm: "削除しますか？"} %></td>
     <td class="td-service"><%= service.name %></td>
     <td class="td-price"><%= service.price %></td>
     </tr>

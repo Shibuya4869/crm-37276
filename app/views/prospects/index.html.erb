@@ -28,7 +28,7 @@
       <tr>
       <td><%= link_to "受注", new_prospect_order_path(prospect.id) %></td>
       <td><%= link_to "編集", edit_prospect_path(prospect.id) %></td>
-      <td><%= link_to "削除", prospect_path(prospect.id), method: :delete %></td>
+      <td><%= link_to "削除", prospect_path(prospect.id), method: :delete, data: {confirm: "削除しますか？"} %></td>
       <td class="td-client"><%= prospect.client.name %></td>
       <td class="td-service"><%= prospect.service.name %></td>
       <td class="td-user"><%= prospect.user.nickname %></td>

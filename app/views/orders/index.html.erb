@@ -19,7 +19,7 @@
   <% @orders.each do |order| %>
     <tr>
     <td><%= link_to "編集", edit_order_path(order.id) %></td>
-    <td><%= link_to "削除", order_path(order.id), method: :delete %></td>
+    <td><%= link_to "削除", order_path(order.id), method: :delete, data: {confirm: "削除しますか？"} %></td>
     <td class="td-client"><%= order.client.name %></td>
     <td class="td-service"><%= order.service.name %></td>
     <td class="td-user"><%= order.user.nickname %></td>
