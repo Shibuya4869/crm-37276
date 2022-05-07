@@ -1,15 +1,16 @@
 /* 共通部分 */
 .wrapper {
   display: flex;
+  font-family: "M PLUS Rounded 1c", sans-serif;
 }
 
 .header {
   display: flex;
-  height: 40px;
+  height: 45px;
   width: 100%;
   align-items: center;
   justify-content: space-between;
-  background-color: #fff0ff;
+  background-color: #e2e4e3;
 }
 
 .header-title {
@@ -27,6 +28,7 @@
 }
 
 .header-user-link {
+  font-family: "M PLUS Rounded 1c", sans-serif;
   padding: 0 10px;
 }
 
@@ -34,7 +36,7 @@
   height: calc(100vh - 30px);
   width: 300px;
   padding: 10px 0 0 20px;
-  background-color: #fffff0;
+  background-color: #f5f7f6;
 }
 
 .side-bar-li {
@@ -42,21 +44,23 @@
 }
 
 h1 {
-  font-size: 24px;
-  padding-bottom: 20px;
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-family: "M PLUS Rounded 1c", sans-serif;
+  font-size: 30px;
+  color: #333333;
 }
 
 /* メイン画面 */
 .main {
   width: calc(100vw - 300px);
   padding: 10px;
-  background-color: #f0ffff;
+  font-family: "Noto Sans JP", sans-serif;
+  background-color: #fefefe;
 }
 
 h2 {
   font-size: 24px;
   padding-bottom: 20px;
+  color: #333333;
 }
 
 .new-data-btn {
