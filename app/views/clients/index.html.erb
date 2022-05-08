@@ -6,20 +6,24 @@
 <% else %>
   <table>
     <tr class="table-subject">
-    <th></th>
-    <th></th>
-    <th>顧客名</th>
-    <th>電話番号</th>
-    <th>メールアドレス</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th>顧客名</th>
+      <th>電話番号</th>
+      <th>メールアドレス</th>
     </tr>
-  <% @clients.each do |client| %>
-    <tr>
-    <td><%= link_to "編集", edit_client_path(client.id) %></td>
-    <td><%= link_to "削除", client_path(client.id), method: :delete, data: {confirm: "削除しますか？"} %></td>
-    <td class="td-client"><%= client.name %></td>
-    <td class="td-phone"><%= client.phone %></td>
-    <td class="td-mail"><%= client.address %></td>
-    </tr>
-  <% end %>
+    <% row_count = 1 %>
+    <% @clients.each do |client| %>
+      <tr>
+        <td class="td-count"><%= row_count %></td>
+        <td><%= link_to "編集", edit_client_path(client.id) %></td>
+        <td><%= link_to "削除", client_path(client.id), method: :delete, data: {confirm: "削除しますか？"} %></td>
+        <td class="td-client"><%= client.name %></td>
+        <td class="td-phone"><%= client.phone %></td>
+        <td class="td-mail"><%= client.address %></td>
+      </tr>
+      <% row_count += 1 %>
+    <% end %>
   </table>
 <% end %>

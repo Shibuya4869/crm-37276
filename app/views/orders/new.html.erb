@@ -15,6 +15,6 @@
   <%= f.number_field :license, value: @prospect.license %>
   <%= f.label :note, "備考", class:"form-label" %>
   <%= f.text_area :note, class:"form-note" %>
-  <% f.text_area :prospect_id, value: @prospect.id %>
+  <%= f.hidden_field :prospect_id, value: @prospect.id %>
   <%= f.submit "登録", class:"form-btn" %>
 <% end %>

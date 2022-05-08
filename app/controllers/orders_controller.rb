@@ -2,7 +2,7 @@ class OrdersController < ApplicationController
   before_action :find_params, only: [:edit, :update, :destroy]
 
   def index
-    @orders = Order.all.order('created_at ASC')
+    @orders = Order.all.order('order_date ASC')
   end
   
   def new
@@ -38,9 +38,10 @@ class OrdersController < ApplicationController
   private
 
   def order_params
+    # binding.pry
     params.require(:order).permit(
-      :prospect_id, :service_id, :client_id, :user_id, :order_date, :expiry, :license, :note
-    ).merge(prospect_id: 1)#1固定にしているので要変更
+      :prospect_id, :user_id, :service_id, :client_id, :order_date, :expiry, :license, :note
+    )
   end
 
   def find_params

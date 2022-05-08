@@ -1,24 +1,27 @@
 <h2>サービス一覧</h2>
 <%= link_to "サービス（商品）登録", new_service_path %>
 
-<br><br>
 <% if @services == [] %>
   <p>サービス（商品）が登録されていません</p>
 <% else %>
-<table>
-  <tr class="table-subject">
-  <th></th>
-  <th></th>
-  <th>サービス名</th>
-  <th>月額単価</th>
-  </tr>
-  <% @services.each do |service| %>
-    <tr>
-    <td><%= link_to "編集", edit_service_path(service.id) %></td>
-    <td><%= link_to "削除", service_path(service.id), method: :delete, data: {confirm: "削除しますか？"} %></td>
-    <td class="td-service"><%= service.name %></td>
-    <td class="td-price"><%= service.price %></td>
+  <table>
+    <tr class="table-subject">
+      <th>No.</th>
+      <th></th>
+      <th></th>
+      <th>サービス名</th>
+      <th>月額単価</th>
     </tr>
-  <% end %>
+    <% row_count = 1 %>
+    <% @services.each do |service| %>
+      <tr>
+        <td class="td-count"><%= row_count %></td>
+        <td><%= link_to "編集", edit_service_path(service.id) %></td>
+        <td><%= link_to "削除", service_path(service.id), method: :delete, data: {confirm: "削除しますか？"} %></td>
+        <td class="td-service"><%= service.name %></td>
+        <td class="td-price"><%= service.price %></td>
+      </tr>
+      <% row_count += 1 %>
+    <% end %>
   </table>
 <% end %>

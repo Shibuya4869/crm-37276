@@ -5,30 +5,34 @@
 <% else %>
 <table>
   <tr class="table-subject">
-  <th></th>
-  <th></th>
-  <th>顧客名</th>
-  <th>サービス名</th>
-  <th>担当営業</th>
-  <th>ライセンス数</th>
-  <th>契約金額</th>
-  <th>契約日</th>
-  <th>契約満了日</th>
-  <th>備考</th>
+    <th>No.</th>
+    <th></th>
+    <th></th>
+    <th>顧客名</th>
+    <th>サービス名</th>
+    <th>担当営業</th>
+    <th>ライセンス数</th>
+    <th>契約金額</th>
+    <th>契約日</th>
+    <th>契約満了日</th>
+    <th>備考</th>
   </tr>
+  <% row_count = 1 %>
   <% @orders.each do |order| %>
     <tr>
-    <td><%= link_to "編集", edit_order_path(order.id) %></td>
-    <td><%= link_to "削除", order_path(order.id), method: :delete, data: {confirm: "削除しますか？"} %></td>
-    <td class="td-client"><%= order.client.name %></td>
-    <td class="td-service"><%= order.service.name %></td>
-    <td class="td-user"><%= order.user.nickname %></td>
-    <td class="td-license"><%= order.license %></td>
-    <td class="td-price"><%= order.service.price * order.license %></td>
-    <td class="td-date"><%= order.order_date %></td>
-    <td class="td-date"><%= order.expiry %></td>
-    <td class="td-note"><%= order.note %></td>
+      <td class="td-count"><%= row_count %></td>
+      <td><%= link_to "編集", edit_order_path(order.id) %></td>
+      <td><%= link_to "削除", order_path(order.id), method: :delete, data: {confirm: "削除しますか？"} %></td>
+      <td class="td-client"><%= order.client.name %></td>
+      <td class="td-service"><%= order.service.name %></td>
+      <td class="td-user"><%= order.user.nickname %></td>
+      <td class="td-license"><%= order.license %></td>
+      <td class="td-price"><%= order.service.price * order.license %></td>
+      <td class="td-date"><%= order.order_date %></td>
+      <td class="td-date"><%= order.expiry %></td>
+      <td class="td-note"><%= order.note %></td>
     </tr>
+    <% row_count += 1 %>
   <% end %>
   </table>
 <% end %>
