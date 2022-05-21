@@ -41,7 +41,7 @@
             <td class="td-service"><%= prospect.service.name %></td>
             <td class="td-user"><%= prospect.user.nickname %></td>
             <td class="td-license"><%= prospect.license %></td>
-            <td class="td-price"><%= prospect.service.price * prospect.license %></td>
+            <td class="td-price"><%= (prospect.service.price * prospect.license).to_s(:delimited) %></td>
             <td class="td-date"><%= prospect.scheduled_order_date %></td>
             <td class="td-note"><%= prospect.note %></td>
           </tr>
@@ -75,7 +75,7 @@
         <td class="td-service"><%= past_prospect.service.name %></td>
         <td class="td-user"><%= past_prospect.user.nickname %></td>
         <td class="td-license"><%= past_prospect.license %></td>
-        <td class="td-price"><%= past_prospect.service.price * past_prospect.license %></td>
+        <td class="td-price"><%= (past_prospect.service.price * past_prospect.license).to_s(:delimited) %></td>
         <td class="td-date"><%= past_prospect.scheduled_order_date %></td>
         <td class="td-note"><%= past_prospect.note %></td>
       </tr>

@@ -27,7 +27,7 @@
       <td class="td-service"><%= order.service.name %></td>
       <td class="td-user"><%= order.user.nickname %></td>
       <td class="td-license"><%= order.license %></td>
-      <td class="td-price"><%= order.service.price * order.license %></td>
+      <td class="td-price"><%= (order.service.price * order.license).to_s(:delimited) %></td>
       <td class="td-date"><%= order.order_date %></td>
       <td class="td-date"><%= order.expiry %></td>
       <td class="td-note"><%= order.note %></td>
